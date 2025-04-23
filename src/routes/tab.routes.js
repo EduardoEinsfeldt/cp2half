@@ -17,31 +17,31 @@ export default function TabRoutes({ route }) {
             <Tab.Screen name='tabHome' component={Home}
                 options={{
                     tabBarIcon: () => <Feather name='home' size={20} />,
-                    tabBarLabel: "Início", tabBarActiveBackgroundColor: '#695505', tabBarInactiveBackgroundColor: '#880808', tabBarActiveTintColor: 'black', tabBarInactiveTintColor: 'black',
+                    tabBarLabel: "Início", tabBarActiveBackgroundColor: '#1e1e1e', tabBarInactiveBackgroundColor: '#1e1e1e', tabBarActiveTintColor: '#81c784', tabBarInactiveTintColor: '#888',
                 }}
             />
             <Tab.Screen name='tabDev' component={Dev}
                 options={{
-                    tabBarIcon: () => <Feather name='check-circle' size={20} />,
-                    tabBarLabel: "Devs", tabBarActiveBackgroundColor: '#695505', tabBarInactiveBackgroundColor: '#880808', tabBarActiveTintColor: 'black', tabBarInactiveTintColor: 'black'
+                    tabBarIcon: () => <Feather name='meh' size={20} />,
+                    tabBarLabel: "Devs", tabBarActiveBackgroundColor: '#1e1e1e', tabBarInactiveBackgroundColor: '#1e1e1e', tabBarActiveTintColor: '#81c784', tabBarInactiveTintColor: '#888'
                 }}
             />
             <Tab.Screen name='tabForms' component={Form}
                 options={{
-                    tabBarIcon: () => <Feather name='check-circle' size={20} />,
-                    tabBarLabel: "Formulario", tabBarActiveBackgroundColor: '#695505', tabBarInactiveBackgroundColor: '#880808', tabBarActiveTintColor: 'black', tabBarInactiveTintColor: 'black'
+                    tabBarIcon: () => <Feather name='clipboard' size={20} />,
+                    tabBarLabel: "Formulario", tabBarActiveBackgroundColor: '#1e1e1e', tabBarInactiveBackgroundColor: '#1e1e1e', tabBarActiveTintColor: '#81c784', tabBarInactiveTintColor: '#888'
                 }}
             />
             <Tab.Screen name='tabInfo' component={Info}
                 options={{
-                    tabBarIcon: () => <Feather name='check-circle' size={20} />,
-                    tabBarLabel: "Info", tabBarActiveBackgroundColor: '#695505', tabBarInactiveBackgroundColor: '#880808', tabBarActiveTintColor: 'black', tabBarInactiveTintColor: 'black'
+                    tabBarIcon: () => <Feather name='info' size={20} />,
+                    tabBarLabel: "Info", tabBarActiveBackgroundColor: '#1e1e1e', tabBarInactiveBackgroundColor: '#1e1e1e', tabBarActiveTintColor: '#81c784', tabBarInactiveTintColor: '#888'
                 }}
             />
             <Tab.Screen name='tabLinks' component={Links}
                 options={{
-                    tabBarIcon: () => <Feather name='check-circle' size={20} />,
-                    tabBarLabel: "Links", tabBarActiveBackgroundColor: '#695505', tabBarInactiveBackgroundColor: '#880808', tabBarActiveTintColor: 'black', tabBarInactiveTintColor: 'black'
+                    tabBarIcon: () => <Feather name='link' size={20} />,
+                    tabBarLabel: "Links", tabBarActiveBackgroundColor: '#1e1e1e', tabBarInactiveBackgroundColor: '#1e1e1e', tabBarActiveTintColor: '#81c784', tabBarInactiveTintColor: '#888'
                 }}
             />
         </Tab.Navigator>
