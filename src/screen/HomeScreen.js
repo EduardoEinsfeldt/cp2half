@@ -38,6 +38,11 @@ export default function Home() {
         <Text style={styles.textList}>• Optar por meios de transporte sustentáveis</Text>
         <Text style={styles.textList}>• Divulgar informações e boas práticas</Text>
 
+        <Image
+            source={require("../../public/assets/pollution3.png")}
+            style={styles.imageBottom}
+          />
+
         <Text style={styles.finalMessage}>Juntos podemos transformar o mundo. Faça sua parte! 🌍</Text>
       </ScrollView>
     </View>
@@ -58,6 +63,13 @@ const styles = StyleSheet.create({
     height: 180,
     resizeMode: 'cover',
     marginVertical: 15,
+    borderRadius: 10,
+  },
+  imageBottom: {
+    width: 300,
+    height: 180,
+    resizeMode: 'cover',
+    marginVertical: 20,
     borderRadius: 10,
   },
   textTitle1: {
