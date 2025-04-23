@@ -6,12 +6,12 @@ export default function Dev() {
     {
       nome: 'Vicenzo Massao',
       funcao: 'Dev Full Stack',
-      imagem: require('../../assets/vicenzo.jpg') 
+      imagem: require('../../public/assets/vicenzo.jpg') 
     },
     {
       nome: 'Eduardo Einsfeldt',
       funcao: 'Dev Full Stack',
-      imagem: require('../../assets/eduardo.jpg')
+      imagem: require('../../public/assets/eduardo.jpg')
     },
   ];
   
