@@ -6,6 +6,7 @@ export default function Home() {
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
+      <h1>💀 POLUIÇÃO 💀</h1>
     </View>
   );
 }
