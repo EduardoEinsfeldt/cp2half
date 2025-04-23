@@ -1,80 +1,100 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View, Image, Text} from 'react-native';
+import { StyleSheet, View, Image, Text, ScrollView } from 'react-native';
 
 export default function Home() {
-
   return (
-    <>
-    <View style={styles.container}>
-      <StatusBar style="auto" />
-      <Text style={styles.text}>💀 POLUIÇÃO 💀</Text>
-      <div className="home-container">
-      <div className="hero-section">
+    <View style={styles.screen}>
+      <StatusBar style="light" />
+      <ScrollView contentContainerStyle={styles.container}>
+        <Text style={styles.textTitle1}>💀 POLUIÇÃO 💀</Text>
+
         <Image 
-          src='../../public/assets/pollution1.png' 
-          alt="Imagem de poluição"
-          className="hero-image"
+          source={require('../../public/assets/pollution1.png')}
+          style={styles.imageTop}
         />
-        <div className="hero-text">
-          <h1>Conscientização sobre a Poluição</h1>
-          <p>
-            A poluição afeta todos nós. Do ar que respiramos à água que bebemos, nossos hábitos impactam o planeta. 
-            Vamos entender como pequenas ações podem causar grandes mudanças.
-          </p>
-        </div>
-      </div>
 
-      <section className="causas-section">
-        <h2>Principais causas da poluição</h2>
-        <ul>
-          <li>Emissão de gases industriais e automotivos</li>
-          <li>Descarte incorreto de lixo</li>
-          <li>Uso excessivo de plásticos</li>
-          <li>Contaminação dos corpos d'água</li>
-        </ul>
-      </section>
+        <Text style={styles.textTitle2}>Conscientização sobre a Poluição</Text>
+        <Text style={styles.text}>
+          A poluição afeta todos nós. Do ar que respiramos à água que bebemos, nossos hábitos impactam o planeta. 
+          Vamos entender como pequenas ações podem causar grandes mudanças.
+        </Text>
 
-      <section className="impacto-section">
-        <div className="impacto-text">
-          <h2>Impactos da Poluição</h2>
-          <p>
-            A saúde humana está em risco. Doenças respiratórias, intoxicações e danos ao sistema nervoso estão entre os efeitos.
-            Além disso, ecossistemas inteiros são destruídos pela poluição desenfreada.
-          </p>
-        </div>
-        <div className="impacto-img">
-          <img 
-            src="/imagens/impacto.jpg"
-            alt="Impacto da poluição"
-          />
-        </div>
-      </section>
+        <Text style={styles.textTitle2}>Principais causas da poluição</Text>
+        <Text style={styles.textList}>• Emissão de gases industriais e automotivos</Text>
+        <Text style={styles.textList}>• Descarte incorreto de lixo</Text>
+        <Text style={styles.textList}>• Uso excessivo de plásticos</Text>
+        <Text style={styles.textList}>• Contaminação dos corpos d'água</Text>
 
-      <section className="dicas-section">
-        <h2>O que você pode fazer?</h2>
-        <ol>
-          <li>Reduzir o consumo de plástico</li>
-          <li>Separar e reciclar o lixo</li>
-          <li>Evitar o desperdício de água</li>
-          <li>Optar por meios de transporte sustentáveis</li>
-          <li>Divulgar informações e boas práticas</li>
-        </ol>
-      </section>
+        <Text style={styles.textTitle2}>Impactos da Poluição</Text>
+        <Text style={styles.text}>
+          A saúde humana está em risco. Doenças respiratórias, intoxicações e danos ao sistema nervoso estão entre os efeitos.
+          Além disso, ecossistemas inteiros são destruídos pela poluição desenfreada.
+        </Text>
 
-      <footer className="footer">
-        <p>Juntos podemos transformar o mundo. Faça sua parte! 🗿</p>
-      </footer>
-    </div>
+        <Text style={styles.textTitle2}>O que você pode fazer?</Text>
+        <Text style={styles.textList}>• Reduzir o consumo de plástico</Text>
+        <Text style={styles.textList}>• Separar e reciclar o lixo</Text>
+        <Text style={styles.textList}>• Evitar o desperdício de água</Text>
+        <Text style={styles.textList}>• Optar por meios de transporte sustentáveis</Text>
+        <Text style={styles.textList}>• Divulgar informações e boas práticas</Text>
+
+        <Text style={styles.finalMessage}>Juntos podemos transformar o mundo. Faça sua parte! 🌍</Text>
+      </ScrollView>
     </View>
-    </>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  screen: {
     flex: 1,
-    backgroundColor: '#880808',
+    backgroundColor: '#1e1e1e',
+  },
+  container: {
+    padding: 20,
     alignItems: 'center',
-    justifyContent: 'flex-start',
+  },
+  imageTop: {
+    width: 300,
+    height: 180,
+    resizeMode: 'cover',
+    marginVertical: 15,
+    borderRadius: 10,
+  },
+  textTitle1: {
+    fontSize: 28,
+    fontWeight: 'bold',
+    color: '#d32f2f',
+    textAlign: 'center',
+    marginTop: 20,
+  },
+  textTitle2: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#81c784',
+    marginTop: 20,
+    marginBottom: 8,
+    textAlign: 'center',
+  },
+  text: {
+    fontSize: 16,
+    color: '#f0f0f0',
+    textAlign: 'center',
+    marginBottom: 15,
+    paddingHorizontal: 10,
+  },
+  textList: {
+    fontSize: 16,
+    color: '#c8e6c9',
+    textAlign: 'left',
+    width: '100%',
+    paddingLeft: 10,
+    marginBottom: 5,
+  },
+  finalMessage: {
+    fontSize: 18,
+    color: '#ffffff',
+    fontWeight: '600',
+    marginTop: 25,
+    textAlign: 'center',
   }
 });
