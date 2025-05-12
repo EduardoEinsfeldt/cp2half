@@ -4,11 +4,11 @@
     "slug": "cp2half",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./public/assets/icon.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./public/assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -17,12 +17,18 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./public/assets/icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.eduardoeinsfeldt.cp2half"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./public/assets/icon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "ddb5ded6-c91c-459c-9e67-7407a98f783c"
+      }
     }
   }
 }
