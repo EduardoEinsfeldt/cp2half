@@ -25,7 +25,6 @@ export default function LinkScreen() {
     <View style={styles.screen}>
       <StatusBar style="light" />
       <ScrollView contentContainerStyle={styles.container}>
-        {/* Título */}
         <MotiText
           from={{ opacity: 0, translateY: -20 }}
           animate={{ opacity: 1, translateY: 0 }}
