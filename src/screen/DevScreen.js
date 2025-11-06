@@ -1,17 +1,28 @@
+import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { View, Text, Image, StyleSheet, ScrollView } from 'react-native';
+import { useFocusEffect } from '@react-navigation/native';
+import { MotiView, MotiText, MotiImage } from 'moti';
 
 export default function Dev() {
+  const [refreshKey, setRefreshKey] = useState(0);
+
+  useFocusEffect(
+    React.useCallback(() => {
+      setRefreshKey(prev => prev + 1);
+    }, [])
+  );
+
   const devs = [
     {
       nome: 'Vicenzo Massao',
       funcao: 'Dev Full Stack',
-      imagem: require('../../public/assets/vicenzo.png') 
+      imagem: require('../../public/assets/vicenzo.png'),
     },
     {
       nome: 'Eduardo Einsfeldt',
       funcao: 'Dev Full Stack',
-      imagem: require('../../public/assets/vlad_the_chad.png')
+      imagem: require('../../public/assets/vlad_the_chad.png'),
     },
   ];
 
@@ -19,19 +30,73 @@ export default function Dev() {
     <View style={styles.screen}>
       <StatusBar style="light" />
       <ScrollView contentContainerStyle={styles.container}>
-        <Text style={styles.title}>Nossos Arautos</Text>
-        <Text style={styles.description}>
+        <MotiText
+          key={`title-${refreshKey}`}
+          from={{ opacity: 0, translateY: -20 }}
+          animate={{ opacity: 1, translateY: 0 }}
+          transition={{ type: 'timing', duration: 800 }}
+          style={styles.title}
+        >
+          Nossos Arautos
+        </MotiText>
+
+        <MotiText
+          key={`desc-${refreshKey}`}
+          from={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ type: 'timing', duration: 1000, delay: 400 }}
+          style={styles.description}
+        >
           Conheça os desenvolvedores por trás deste projeto de conscientização ambiental.
-        </Text>
+        </MotiText>
 
         {devs.map((dev, index) => (
-          <View key={index} style={styles.card}>
-            <Image source={dev.imagem} style={styles.avatar} />
+          <MotiView
+            key={`card-${refreshKey}-${index}`}
+            from={{ opacity: 0, translateY: 30 }}
+            animate={{ opacity: 1, translateY: 0 }}
+            transition={{
+              type: 'spring',
+              delay: 600 + index * 200,
+            }}
+            style={styles.card}
+          >
+            <MotiImage
+              key={`img-${refreshKey}-${index}`}
+              from={{ scale: 1 }}
+              animate={{ scale: 1.05 }}
+              transition={{
+                type: 'timing',
+                duration: 2000,
+                loop: true,
+                repeatReverse: true,
+              }}
+              style={styles.avatar}
+              source={dev.imagem}
+            />
+
             <View style={styles.textContainer}>
-              <Text style={styles.name}>{dev.nome}</Text>
-              <Text style={styles.role}>{dev.funcao}</Text>
+              <MotiText
+                key={`name-${refreshKey}-${index}`}
+                from={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 900 + index * 200 }}
+                style={styles.name}
+              >
+                {dev.nome}
+              </MotiText>
+
+              <MotiText
+                key={`role-${refreshKey}-${index}`}
+                from={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1100 + index * 200 }}
+                style={styles.role}
+              >
+                {dev.funcao}
+              </MotiText>
             </View>
-          </View>
+          </MotiView>
         ))}
       </ScrollView>
     </View>

@@ -1,34 +1,102 @@
+import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { View, Text, ScrollView, StyleSheet } from 'react-native';
+import { View, ScrollView, StyleSheet } from 'react-native';
+import { MotiText, MotiView } from 'moti';
 
 export default function Info() {
   return (
     <View style={styles.screen}>
       <StatusBar style="light" />
       <ScrollView contentContainerStyle={styles.container}>
-        <Text style={styles.title}>Poluição: A Ameaça Invisível</Text>
+        <MotiText
+          from={{ opacity: 0, translateY: -20 }}
+          animate={{ opacity: 1, translateY: 0 }}
+          transition={{ type: 'timing', duration: 600 }}
+          style={styles.title}
+        >
+          Poluição: A Ameaça Invisível
+        </MotiText>
 
-        <Text style={styles.sectionTitle}>🧪 O que é poluição?</Text>
-        <Text style={styles.paragraph}>
+        <MotiText
+          from={{ opacity: 0, translateX: -30 }}
+          animate={{ opacity: 1, translateX: 0 }}
+          transition={{ delay: 300, duration: 500 }}
+          style={styles.sectionTitle}
+        >
+          🧪 O que é poluição?
+        </MotiText>
+
+        <MotiText
+          from={{ opacity: 0, translateY: 20 }}
+          animate={{ opacity: 1, translateY: 0 }}
+          transition={{ delay: 500, duration: 500 }}
+          style={styles.paragraph}
+        >
           Poluição é a introdução de substâncias ou agentes poluentes no meio ambiente, causando efeitos adversos à saúde humana, à fauna e à flora. Ela pode ser do ar, da água, do solo ou sonora.
-        </Text>
+        </MotiText>
 
-        <Text style={styles.sectionTitle}>📊 Fatos Nerds sobre Poluição</Text>
-        <Text style={styles.paragraph}>• A cada ano, cerca de 7 milhões de pessoas morrem devido à poluição do ar.</Text>
-        <Text style={styles.paragraph}>• O Oceano Pacífico abriga uma “ilha” de lixo plástico com mais de 1.6 milhões de km² (quase 3x o tamanho da França!).</Text>
-        <Text style={styles.paragraph}>• O setor de transporte é responsável por aproximadamente 14% das emissões globais de gases de efeito estufa.</Text>
-        <Text style={styles.paragraph}>• Algumas partículas de poluição são tão pequenas que podem atravessar barreiras biológicas e chegar ao cérebro.</Text>
+        <MotiText
+          from={{ opacity: 0, translateX: 30 }}
+          animate={{ opacity: 1, translateX: 0 }}
+          transition={{ delay: 700, duration: 500 }}
+          style={styles.sectionTitle}
+        >
+          📊 Fatos Nerds sobre Poluição
+        </MotiText>
 
-        <Text style={styles.sectionTitle}>🛠️ O que você pode fazer?</Text>
-        <Text style={styles.paragraph}>• Use transporte público, bicicleta ou caminhe sempre que possível 🚲</Text>
-        <Text style={styles.paragraph}>• Reduza, Reutilize, Recicle ♻️</Text>
-        <Text style={styles.paragraph}>• Economize energia elétrica 💡</Text>
-        <Text style={styles.paragraph}>• Evite produtos com excesso de embalagem 📦</Text>
-        <Text style={styles.paragraph}>• Apoie políticas públicas e projetos ambientais locais 🌱</Text>
+        {[
+          '• A cada ano, cerca de 7 milhões de pessoas morrem devido à poluição do ar.',
+          '• O Oceano Pacífico abriga uma “ilha” de lixo plástico com mais de 1.6 milhões de km² (quase 3x o tamanho da França!).',
+          '• O setor de transporte é responsável por aproximadamente 14% das emissões globais de gases de efeito estufa.',
+          '• Algumas partículas de poluição são tão pequenas que podem atravessar barreiras biológicas e chegar ao cérebro.',
+        ].map((item, index) => (
+          <MotiText
+            key={`fact-${index}`}
+            from={{ opacity: 0, translateY: 15 }}
+            animate={{ opacity: 1, translateY: 0 }}
+            transition={{ delay: 900 + index * 150, duration: 400 }}
+            style={styles.paragraph}
+          >
+            {item}
+          </MotiText>
+        ))}
 
-        <Text style={styles.footer}>
-          “Não herdamos a Terra de nossos antepassados, nós a tomamos emprestada de nossos filhos.” – Provérbio indígena
-        </Text>
+        <MotiText
+          from={{ opacity: 0, translateX: -30 }}
+          animate={{ opacity: 1, translateX: 0 }}
+          transition={{ delay: 1600, duration: 500 }}
+          style={styles.sectionTitle}
+        >
+          🛠️ O que você pode fazer?
+        </MotiText>
+
+        {[
+          '• Use transporte público, bicicleta ou caminhe sempre que possível 🚲',
+          '• Reduza, Reutilize, Recicle ♻️',
+          '• Economize energia elétrica 💡',
+          '• Evite produtos com excesso de embalagem 📦',
+          '• Apoie políticas públicas e projetos ambientais locais 🌱',
+        ].map((item, index) => (
+          <MotiText
+            key={`action-${index}`}
+            from={{ opacity: 0, translateY: 15 }}
+            animate={{ opacity: 1, translateY: 0 }}
+            transition={{ delay: 1800 + index * 150, duration: 400 }}
+            style={styles.paragraph}
+          >
+            {item}
+          </MotiText>
+        ))}
+
+        <MotiView
+          from={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 2800, duration: 700 }}
+        >
+          <MotiText style={styles.footer}>
+            “Não herdamos a Terra de nossos antepassados, nós a tomamos emprestada de nossos filhos.” – Provérbio indígena
+          </MotiText>
+        </MotiView>
       </ScrollView>
     </View>
   );

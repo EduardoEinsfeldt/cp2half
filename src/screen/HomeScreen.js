@@ -1,49 +1,139 @@
+import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View, Image, Text, ScrollView } from 'react-native';
+import { StyleSheet, View, ScrollView } from 'react-native';
+import { MotiView, MotiText, MotiImage } from 'moti';
 
 export default function Home() {
   return (
     <View style={styles.screen}>
       <StatusBar style="light" />
       <ScrollView contentContainerStyle={styles.container}>
-        <Text style={styles.textTitle1}>💀 POLUIÇÃO 💀</Text>
+        
+        <MotiText
+          from={{ opacity: 0, translateY: -20 }}
+          animate={{ opacity: 1, translateY: 0 }}
+          transition={{ type: 'timing', duration: 600 }}
+          style={styles.textTitle1}
+        >
+          💀 POLUIÇÃO 💀
+        </MotiText>
 
-        <Image 
+        <MotiImage
+          from={{ scale: 1 }}
+          animate={{ scale: 1.03 }}
+          transition={{
+            type: 'timing',
+            duration: 5000,
+            loop: true,
+            repeatReverse: true,
+          }}
           source={require('../../public/assets/pollution1.png')}
           style={styles.imageTop}
         />
 
-        <Text style={styles.textTitle2}>Conscientização sobre a Poluição</Text>
-        <Text style={styles.text}>
+        <MotiText
+          from={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 400, duration: 600 }}
+          style={styles.textTitle2}
+        >
+          Conscientização sobre a Poluição
+        </MotiText>
+
+        <MotiText
+          from={{ opacity: 0, translateY: 15 }}
+          animate={{ opacity: 1, translateY: 0 }}
+          transition={{ delay: 600, duration: 600 }}
+          style={styles.text}
+        >
           A poluição afeta todos nós. Do ar que respiramos à água que bebemos, nossos hábitos impactam o planeta. 
           Vamos entender como pequenas ações podem causar grandes mudanças.
-        </Text>
+        </MotiText>
 
-        <Text style={styles.textTitle2}>Principais causas da poluição</Text>
-        <Text style={styles.textList}>• Emissão de gases industriais e automotivos</Text>
-        <Text style={styles.textList}>• Descarte incorreto de lixo</Text>
-        <Text style={styles.textList}>• Uso excessivo de plásticos</Text>
-        <Text style={styles.textList}>• Contaminação dos corpos d'água</Text>
+        <MotiText
+          from={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 800, duration: 600 }}
+          style={styles.textTitle2}
+        >
+          Principais causas da poluição
+        </MotiText>
 
-        <Text style={styles.textTitle2}>Impactos da Poluição</Text>
-        <Text style={styles.text}>
+        <MotiView
+          from={{ opacity: 0, translateY: 20 }}
+          animate={{ opacity: 1, translateY: 0 }}
+          transition={{ delay: 1000, duration: 600 }}
+          style={{ width: '100%' }}
+        >
+          <MotiText style={styles.textList}>• Emissão de gases industriais e automotivos</MotiText>
+          <MotiText style={styles.textList}>• Descarte incorreto de lixo</MotiText>
+          <MotiText style={styles.textList}>• Uso excessivo de plásticos</MotiText>
+          <MotiText style={styles.textList}>• Contaminação dos corpos d'água</MotiText>
+        </MotiView>
+
+        <MotiText
+          from={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1200, duration: 600 }}
+          style={styles.textTitle2}
+        >
+          Impactos da Poluição
+        </MotiText>
+
+        <MotiText
+          from={{ opacity: 0, translateY: 15 }}
+          animate={{ opacity: 1, translateY: 0 }}
+          transition={{ delay: 1400, duration: 600 }}
+          style={styles.text}
+        >
           A saúde humana está em risco. Doenças respiratórias, intoxicações e danos ao sistema nervoso estão entre os efeitos.
           Além disso, ecossistemas inteiros são destruídos pela poluição desenfreada.
-        </Text>
+        </MotiText>
 
-        <Text style={styles.textTitle2}>O que você pode fazer?</Text>
-        <Text style={styles.textList}>• Reduzir o consumo de plástico</Text>
-        <Text style={styles.textList}>• Separar e reciclar o lixo</Text>
-        <Text style={styles.textList}>• Evitar o desperdício de água</Text>
-        <Text style={styles.textList}>• Optar por meios de transporte sustentáveis</Text>
-        <Text style={styles.textList}>• Divulgar informações e boas práticas</Text>
+        <MotiText
+          from={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1600, duration: 600 }}
+          style={styles.textTitle2}
+        >
+          O que você pode fazer?
+        </MotiText>
 
-        <Image
-            source={require("../../public/assets/pollution3.png")}
-            style={styles.imageBottom}
-          />
+        <MotiView
+          from={{ opacity: 0, translateY: 20 }}
+          animate={{ opacity: 1, translateY: 0 }}
+          transition={{ delay: 1800, duration: 600 }}
+          style={{ width: '100%' }}
+        >
+          <MotiText style={styles.textList}>• Reduzir o consumo de plástico</MotiText>
+          <MotiText style={styles.textList}>• Separar e reciclar o lixo</MotiText>
+          <MotiText style={styles.textList}>• Evitar o desperdício de água</MotiText>
+          <MotiText style={styles.textList}>• Optar por meios de transporte sustentáveis</MotiText>
+          <MotiText style={styles.textList}>• Divulgar informações e boas práticas</MotiText>
+        </MotiView>
 
-        <Text style={styles.finalMessage}>Juntos podemos transformar o mundo. Faça sua parte! 🌍</Text>
+        <MotiImage
+          from={{ scale: 1 }}
+          animate={{ scale: 1.03 }}
+          transition={{
+            type: 'timing',
+            duration: 5000,
+            loop: true,
+            repeatReverse: true,
+            delay: 2000,
+          }}
+          source={require("../../public/assets/pollution3.png")}
+          style={styles.imageBottom}
+        />
+
+        <MotiText
+          from={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 2200, duration: 800 }}
+          style={styles.finalMessage}
+        >
+          Juntos podemos transformar o mundo. Faça sua parte! 🌍
+        </MotiText>
       </ScrollView>
     </View>
   );
@@ -108,5 +198,5 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     marginTop: 25,
     textAlign: 'center',
-  }
+  },
 });

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert, ScrollView, Image } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert, ScrollView } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
+import { MotiView, MotiText, MotiImage, AnimatePresence } from 'moti';
 
 export default function FormScreen() {
   const [nome, setNome] = useState('');
@@ -22,49 +23,120 @@ export default function FormScreen() {
     <View style={styles.screen}>
       <StatusBar style="light" />
       <ScrollView contentContainerStyle={styles.container}>
+        <MotiText
+          from={{ opacity: 0, translateY: -20 }}
+          animate={{ opacity: 1, translateY: 0 }}
+          transition={{ type: 'timing', duration: 600 }}
+          style={styles.title}
+        >
+          Contribua com a Nossa Causa
+        </MotiText>
 
-        <Text style={styles.title}>Contribua com a Nossa Causa</Text>
-        <Image 
+        <MotiImage
+          from={{ scale: 1 }}
+          animate={{ scale: 1.03 }}
+          transition={{
+            type: 'timing',
+            duration: 4000,
+            loop: true,
+            repeatReverse: true,
+          }}
           source={require('../../public/assets/pollution5.png')}
           style={styles.imageTop}
-        />        
-        <Text style={styles.description}>
+        />
+
+        <MotiText
+          from={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 400, duration: 600 }}
+          style={styles.description}
+        >
           Envie uma sugestão ou denúncia relacionada à poluição. Sua voz importa!
-        </Text>
+        </MotiText>
 
-        <TextInput
-          style={styles.input}
-          placeholder="Seu nome"
-          placeholderTextColor="#aaa"
-          value={nome}
-          onChangeText={setNome}
-        />
+        <AnimatePresence>
+          <MotiView
+            from={{ opacity: 0, translateY: 20 }}
+            animate={{ opacity: 1, translateY: 0 }}
+            transition={{ delay: 600, duration: 400 }}
+            style={{ width: '100%' }}
+          >
+            <TextInput
+              style={styles.input}
+              placeholder="Seu nome"
+              placeholderTextColor="#aaa"
+              value={nome}
+              onChangeText={setNome}
+            />
+          </MotiView>
 
-        <TextInput
-          style={styles.input}
-          placeholder="Localidade (bairro ou cidade)"
-          placeholderTextColor="#aaa"
-          value={local}
-          onChangeText={setLocal}
-        />
+          <MotiView
+            from={{ opacity: 0, translateY: 20 }}
+            animate={{ opacity: 1, translateY: 0 }}
+            transition={{ delay: 800, duration: 400 }}
+            style={{ width: '100%' }}
+          >
+            <TextInput
+              style={styles.input}
+              placeholder="Localidade (bairro ou cidade)"
+              placeholderTextColor="#aaa"
+              value={local}
+              onChangeText={setLocal}
+            />
+          </MotiView>
 
-        <TextInput
-          style={[styles.input, styles.textArea]}
-          placeholder="Descreva sua sugestão ou denúncia"
-          placeholderTextColor="#aaa"
-          value={mensagem}
-          onChangeText={setMensagem}
-          multiline
-          numberOfLines={6}
-        />
+          <MotiView
+            from={{ opacity: 0, translateY: 20 }}
+            animate={{ opacity: 1, translateY: 0 }}
+            transition={{ delay: 1000, duration: 400 }}
+            style={{ width: '100%' }}
+          >
+            <TextInput
+              style={[styles.input, styles.textArea]}
+              placeholder="Descreva sua sugestão ou denúncia"
+              placeholderTextColor="#aaa"
+              value={mensagem}
+              onChangeText={setMensagem}
+              multiline
+              numberOfLines={6}
+            />
+          </MotiView>
+        </AnimatePresence>
 
-        <TouchableOpacity style={styles.button} onPress={handleSubmit}>
-          <Text style={styles.buttonText}>Enviar</Text>
-        </TouchableOpacity>
-        <Image 
+        <MotiView
+          from={{ scale: 0.9, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 1200, type: 'spring' }}
+        >
+          <TouchableOpacity
+            activeOpacity={0.8}
+            onPress={handleSubmit}
+          >
+            <MotiView
+              from={{ scale: 1 }}
+              animate={{ scale: 1 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: 'timing', duration: 150 }}
+              style={styles.button}
+            >
+              <MotiText style={styles.buttonText}>Enviar</MotiText>
+            </MotiView>
+          </TouchableOpacity>
+        </MotiView>
+
+        <MotiImage
+          from={{ scale: 1 }}
+          animate={{ scale: 1.03 }}
+          transition={{
+            type: 'timing',
+            duration: 4000,
+            loop: true,
+            repeatReverse: true,
+            delay: 1000,
+          }}
           source={require('../../public/assets/pollution6.png')}
           style={styles.imageBottom}
-        />        
+        />
       </ScrollView>
     </View>
   );
@@ -118,6 +190,7 @@ const styles = StyleSheet.create({
     color: '#1e1e1e',
     fontWeight: 'bold',
     fontSize: 16,
+    textAlign: 'center',
   },
   imageTop: {
     width: 300,
@@ -134,5 +207,5 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginTop: 30,
     marginBottom: 20,
-  },  
+  },
 });

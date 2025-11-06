@@ -1,29 +1,15 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Linking, ScrollView, Image } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Linking, ScrollView } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
+import { MotiView, MotiText, MotiImage } from 'moti';
 
 export default function LinkScreen() {
   const links = [
-    {
-      titulo: 'WWF Brasil',
-      url: 'https://www.wwf.org.br/',
-    },
-    {
-      titulo: 'IBAMA (Instituto Brasileiro do Meio Ambiente)',
-      url: 'https://www.gov.br/ibama/',
-    },
-    {
-      titulo: 'Ministério do Meio Ambiente',
-      url: 'https://www.gov.br/mma/',
-    },
-    {
-      titulo: 'Greenpeace Brasil',
-      url: 'https://www.greenpeace.org/brasil/',
-    },
-    {
-      titulo: 'Plataforma MapBiomas',
-      url: 'https://mapbiomas.org/',
-    },
+    { titulo: 'WWF Brasil', url: 'https://www.wwf.org.br/' },
+    { titulo: 'IBAMA (Instituto Brasileiro do Meio Ambiente)', url: 'https://www.gov.br/ibama/' },
+    { titulo: 'Ministério do Meio Ambiente', url: 'https://www.gov.br/mma/' },
+    { titulo: 'Greenpeace Brasil', url: 'https://www.greenpeace.org/brasil/' },
+    { titulo: 'Plataforma MapBiomas', url: 'https://mapbiomas.org/' },
   ];
 
   const abrirLink = async (url) => {
@@ -39,28 +25,77 @@ export default function LinkScreen() {
     <View style={styles.screen}>
       <StatusBar style="light" />
       <ScrollView contentContainerStyle={styles.container}>
-        <Text style={styles.title}>Links Úteis</Text>
+        {/* Título */}
+        <MotiText
+          from={{ opacity: 0, translateY: -20 }}
+          animate={{ opacity: 1, translateY: 0 }}
+          transition={{ type: 'timing', duration: 600 }}
+          style={styles.title}
+        >
+          Links Úteis
+        </MotiText>
 
-        <Image 
+        {/* Imagem superior com leve movimento */}
+        <MotiImage
+          from={{ scale: 1 }}
+          animate={{ scale: 1.03 }}
+          transition={{
+            type: 'timing',
+            duration: 5000,
+            loop: true,
+            repeatReverse: true,
+          }}
           source={require('../../public/assets/pollution2.png')}
           style={styles.imageTop}
         />
 
-        <Text style={styles.description}>
+        {/* Descrição */}
+        <MotiText
+          from={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 400, duration: 600 }}
+          style={styles.description}
+        >
           Acesse fontes confiáveis para saber mais sobre a poluição e como ajudar o meio ambiente.
-        </Text>
+        </MotiText>
 
+        {/* Botões de link animados */}
         {links.map((link, index) => (
-          <TouchableOpacity
-            key={index}
-            style={styles.linkButton}
-            onPress={() => abrirLink(link.url)}
+          <MotiView
+            key={`link-${index}`}
+            from={{ opacity: 0, scale: 0.9, translateY: 20 }}
+            animate={{ opacity: 1, scale: 1, translateY: 0 }}
+            transition={{ delay: 600 + index * 150, duration: 400 }}
+            style={{ width: '100%' }}
           >
-            <Text style={styles.linkText}>{link.titulo}</Text>
-          </TouchableOpacity>
+            <TouchableOpacity
+              activeOpacity={0.8}
+              onPress={() => abrirLink(link.url)}
+            >
+              <MotiView
+                from={{ scale: 1 }}
+                animate={{ scale: 1 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: 'timing', duration: 150 }}
+                style={styles.linkButton}
+              >
+                <MotiText style={styles.linkText}>{link.titulo}</MotiText>
+              </MotiView>
+            </TouchableOpacity>
+          </MotiView>
         ))}
 
-        <Image 
+        {/* Imagem inferior com pulso leve */}
+        <MotiImage
+          from={{ scale: 1 }}
+          animate={{ scale: 1.03 }}
+          transition={{
+            type: 'timing',
+            duration: 5000,
+            loop: true,
+            repeatReverse: true,
+            delay: 1000,
+          }}
           source={require('../../public/assets/pollution4.png')}
           style={styles.imageBottom}
         />
