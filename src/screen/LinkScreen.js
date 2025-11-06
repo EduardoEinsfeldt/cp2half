@@ -35,7 +35,6 @@ export default function LinkScreen() {
           Links Úteis
         </MotiText>
 
-        {/* Imagem superior com leve movimento */}
         <MotiImage
           from={{ scale: 1 }}
           animate={{ scale: 1.03 }}
@@ -49,7 +48,6 @@ export default function LinkScreen() {
           style={styles.imageTop}
         />
 
-        {/* Descrição */}
         <MotiText
           from={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -59,7 +57,6 @@ export default function LinkScreen() {
           Acesse fontes confiáveis para saber mais sobre a poluição e como ajudar o meio ambiente.
         </MotiText>
 
-        {/* Botões de link animados */}
         {links.map((link, index) => (
           <MotiView
             key={`link-${index}`}
@@ -85,7 +82,6 @@ export default function LinkScreen() {
           </MotiView>
         ))}
 
-        {/* Imagem inferior com pulso leve */}
         <MotiImage
           from={{ scale: 1 }}
           animate={{ scale: 1.03 }}
